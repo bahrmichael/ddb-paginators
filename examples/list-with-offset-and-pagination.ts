@@ -15,15 +15,10 @@ async function runMe() {
         },
     };
 
-    let counter = 0;
-
     const records = await getPaginatedResults(async (ExclusiveStartKey, count: number) => {
         const queryResponse = await ddb
             .query({ExclusiveStartKey, ...ddbQueryParams })
             .promise();
-
-        counter += queryResponse.Count;
-        console.log('count', counter);
 
         if (count + queryResponse.Count >= pageSize) {
             return {
@@ -39,7 +34,6 @@ async function runMe() {
         };
     });
 
-    console.log('total', records.length);
     console.log('last item', records.sort((a, b) => a - b)[records.length - 1]);
 }
 
