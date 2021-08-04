@@ -1,0 +1,12 @@
+{
+  "name": "examples",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.958.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.4.10"
+  },
+  "license": "MIT"
+}
